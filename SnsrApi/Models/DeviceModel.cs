@@ -10,5 +10,6 @@ namespace SnsrApi.Models
         public int DeviceModelType { get; set; }
         public string DeviceSerial { get; set; }
         public List<ObjectItem> ObjectItems { get; set; } = new List<ObjectItem>();
+        public string DeviceName { get; set; }
     }
 }

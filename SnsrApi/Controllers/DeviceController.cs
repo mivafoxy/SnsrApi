@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -54,6 +55,36 @@ namespace SnsrApi.Controllers
             return deviceModels;
         }
 
+
+        [HttpGet("deviceId={deviceId}&objectId={objectId}&startDate={startDate}&endDate={endDate}")]
+        public IEnumerable<ObjectValueModel> GetDeviceValues(
+            string deviceId,
+            int objectId,
+            string startDate, // example: 20200120000000000
+            string endDate  // example: 20200125000000000
+            )
+        {
+            var fromDt = DateTime.ParseExact(startDate, "yyyyMMddHHmmssfff", CultureInfo.InvariantCulture);
+            var toDt = DateTime.ParseExact(endDate, "yyyyMMddHHmmssfff", CultureInfo.InvariantCulture);
+
+            var deviceValues =
+                from devals in _context.Set<DeviceObjectValue>()
+                join dev in _context.Set<Device>() on deviceId equals dev.SerialNumber
+                join dl in _context.Set<DeviceLogical>() on dev.IdKey equals dl.DeviceFkey
+                join dob in _context.Set<DeviceObject>() on dl.IdKey equals dob.DeviceLdFkey
+                where (devals.ReceiveTime.CompareTo(fromDt) >= 0) &&
+                devals.ReceiveTime.CompareTo(toDt) <= 1 &&
+                dob.ObjectDictId == objectId
+                select
+                new ObjectValueModel
+                {
+                    ObjectId = dob.ObjectDictId,
+                    ObjectReceiveTime = devals.ReceiveTime,
+                    ObjectValue = devals.ObjectValue
+                };
+
+            return deviceValues.ToList();
+        }
 
         public IActionResult Index()
         {
