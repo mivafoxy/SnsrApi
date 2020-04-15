@@ -7,7 +7,6 @@ D:\Source\Net\SnsrApi\SnsrApi\SnsrApi\bin\Debug\netcoreapp3.1\SnsrApi.runtimecon
 D:\Source\Net\SnsrApi\SnsrApi\SnsrApi\bin\Debug\netcoreapp3.1\SnsrApi.runtimeconfig.dev.json
 D:\Source\Net\SnsrApi\SnsrApi\SnsrApi\bin\Debug\netcoreapp3.1\SnsrApi.dll
 D:\Source\Net\SnsrApi\SnsrApi\SnsrApi\bin\Debug\netcoreapp3.1\SnsrApi.pdb
-D:\Source\Net\SnsrApi\SnsrApi\SnsrApi\obj\Debug\netcoreapp3.1\SnsrApi.csprojAssemblyReference.cache
 D:\Source\Net\SnsrApi\SnsrApi\SnsrApi\obj\Debug\netcoreapp3.1\SnsrApi.AssemblyInfoInputs.cache
 D:\Source\Net\SnsrApi\SnsrApi\SnsrApi\obj\Debug\netcoreapp3.1\SnsrApi.AssemblyInfo.cs
 D:\Source\Net\SnsrApi\SnsrApi\SnsrApi\obj\Debug\netcoreapp3.1\SnsrApi.RazorTargetAssemblyInfo.cache
@@ -144,3 +143,6 @@ D:\Source\Net\SnsrApi\SnsrApi\SnsrApi\bin\Debug\netcoreapp3.1\zh-Hans\Microsoft.
 D:\Source\Net\SnsrApi\SnsrApi\SnsrApi\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
 D:\Source\Net\SnsrApi\SnsrApi\SnsrApi\obj\Debug\netcoreapp3.1\SnsrApi.csproj.CoreCompileInputs.cache
 D:\Source\Net\SnsrApi\SnsrApi\SnsrApi\obj\Debug\netcoreapp3.1\SnsrApi.MvcApplicationPartsAssemblyInfo.cache
+D:\Source\Net\SnsrApi\SnsrApi\SnsrApi\bin\Debug\netcoreapp3.1\Npgsql.dll
+D:\Source\Net\SnsrApi\SnsrApi\SnsrApi\bin\Debug\netcoreapp3.1\Npgsql.EntityFrameworkCore.PostgreSQL.dll
+D:\Source\Net\SnsrApi\SnsrApi\SnsrApi\obj\Debug\netcoreapp3.1\SnsrApi.csprojAssemblyReference.cache

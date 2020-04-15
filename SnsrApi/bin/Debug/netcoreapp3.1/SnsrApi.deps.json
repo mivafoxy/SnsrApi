@@ -29,6 +29,7 @@
           "Microsoft.EntityFrameworkCore.Sqlite": "3.1.1",
           "Microsoft.EntityFrameworkCore.Tools": "3.1.1",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "3.1.1",
+          "Npgsql.EntityFrameworkCore.PostgreSQL": "3.1.3",
           "Microsoft.AspNetCore.Antiforgery": "3.1.0.0",
           "Microsoft.AspNetCore.Authentication.Abstractions": "3.1.0.0",
           "Microsoft.AspNetCore.Authentication.Cookies": "3.1.0.0",
@@ -355,7 +356,7 @@
           "System.Collections.Immutable": "1.7.0",
           "System.Memory": "4.5.3",
           "System.Reflection.Metadata": "1.6.0",
-          "System.Runtime.CompilerServices.Unsafe": "4.5.2",
+          "System.Runtime.CompilerServices.Unsafe": "4.6.0",
           "System.Text.Encoding.CodePages": "4.5.1",
           "System.Threading.Tasks.Extensions": "4.5.3"
         },
@@ -1152,6 +1153,37 @@
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
         }
       },
+      "Npgsql/4.1.3": {
+        "dependencies": {
+          "System.Runtime.CompilerServices.Unsafe": "4.6.0"
+        },
+        "runtime": {
+          "lib/netcoreapp3.0/Npgsql.dll": {
+            "assemblyVersion": "4.1.3.0",
+            "fileVersion": "4.1.3.0"
+          }
+        },
+        "compile": {
+          "lib/netcoreapp3.0/Npgsql.dll": {}
+        }
+      },
+      "Npgsql.EntityFrameworkCore.PostgreSQL/3.1.3": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "3.1.3",
+          "Microsoft.EntityFrameworkCore.Abstractions": "3.1.3",
+          "Microsoft.EntityFrameworkCore.Relational": "3.1.3",
+          "Npgsql": "4.1.3"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll": {
+            "assemblyVersion": "3.1.3.0",
+            "fileVersion": "3.1.3.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll": {}
+        }
+      },
       "NuGet.Frameworks/4.7.0": {
         "dependencies": {
           "NETStandard.Library": "1.6.1"
@@ -1942,7 +1974,7 @@
           }
         }
       },
-      "System.Runtime.CompilerServices.Unsafe/4.5.2": {},
+      "System.Runtime.CompilerServices.Unsafe/4.6.0": {},
       "System.Runtime.Extensions/4.3.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "2.1.2",
@@ -2185,7 +2217,7 @@
       "System.Text.Encoding.CodePages/4.5.1": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "2.1.2",
-          "System.Runtime.CompilerServices.Unsafe": "4.5.2"
+          "System.Runtime.CompilerServices.Unsafe": "4.6.0"
         }
       },
       "System.Text.Encoding.Extensions/4.3.0": {
@@ -4249,6 +4281,20 @@
       "path": "newtonsoft.json/11.0.2",
       "hashPath": "newtonsoft.json.11.0.2.nupkg.sha512"
     },
+    "Npgsql/4.1.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-sWTXCb6WPPO7WEw4+1XoRqE49EdWmuyMA15LVbzV6jZgRxYWK8TbdniWMjguzmAgOZVYTmrCf+jsqPYoSqACvA==",
+      "path": "npgsql/4.1.3",
+      "hashPath": "npgsql.4.1.3.nupkg.sha512"
+    },
+    "Npgsql.EntityFrameworkCore.PostgreSQL/3.1.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-OsuFPlLHx8fyZQOF6e1AOOZ5Wn93eMAGyMihTe/06WEfTy/a367XwU9xJR+sqfvwXKUy+fvLafgFVG0etLTklQ==",
+      "path": "npgsql.entityframeworkcore.postgresql/3.1.3",
+      "hashPath": "npgsql.entityframeworkcore.postgresql.3.1.3.nupkg.sha512"
+    },
     "NuGet.Frameworks/4.7.0": {
       "type": "package",
       "serviceable": true,
@@ -4781,12 +4827,12 @@
       "path": "system.runtime.caching/4.5.0",
       "hashPath": "system.runtime.caching.4.5.0.nupkg.sha512"
     },
-    "System.Runtime.CompilerServices.Unsafe/4.5.2": {
+    "System.Runtime.CompilerServices.Unsafe/4.6.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-wprSFgext8cwqymChhrBLu62LMg/1u92bU+VOwyfBimSPVFXtsNqEWC92Pf9ofzJFlk4IHmJA75EDJn1b2goAQ==",
-      "path": "system.runtime.compilerservices.unsafe/4.5.2",
-      "hashPath": "system.runtime.compilerservices.unsafe.4.5.2.nupkg.sha512"
+      "sha512": "sha512-HxozeSlipUK7dAroTYwIcGwKDeOVpQnJlpVaOkBz7CM4TsE5b/tKlQBZecTjh6FzcSbxndYaxxpsBMz+wMJeyw==",
+      "path": "system.runtime.compilerservices.unsafe/4.6.0",
+      "hashPath": "system.runtime.compilerservices.unsafe.4.6.0.nupkg.sha512"
     },
     "System.Runtime.Extensions/4.3.0": {
       "type": "package",
