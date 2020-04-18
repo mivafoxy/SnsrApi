@@ -60,12 +60,12 @@ namespace SnsrApi.Controllers
         public IEnumerable<ObjectValueModel> GetDeviceValues(
             string deviceId,
             int objectId,
-            string startDate, // example: 20200120000000000
-            string endDate  // example: 20200125000000000
+            string startDate, // example: 20200120000000
+            string endDate  // example: 20200125000000
             )
         {
-            var fromDt = DateTime.ParseExact(startDate, "yyyyMMddHHmmssfff", CultureInfo.InvariantCulture);
-            var toDt = DateTime.ParseExact(endDate, "yyyyMMddHHmmssfff", CultureInfo.InvariantCulture);
+            var fromDt = DateTime.ParseExact(startDate, "yyyyMMddHHmmss", CultureInfo.InvariantCulture);
+            var toDt = DateTime.ParseExact(endDate, "yyyyMMddHHmmss", CultureInfo.InvariantCulture);
 
             var deviceValues =
                 from devals in _context.Set<DeviceObjectValue>()
@@ -82,6 +82,10 @@ namespace SnsrApi.Controllers
                     ObjectReceiveTime = devals.ReceiveTime,
                     ObjectValue = devals.ObjectValue
                 };
+
+            var result = deviceValues.ToList();
+
+            Console.WriteLine(result);
 
             return deviceValues.ToList();
         }
