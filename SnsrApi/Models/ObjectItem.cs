@@ -9,5 +9,8 @@ namespace SnsrApi.Models
     {
         public int ObjectId { get; set; }
         public string ObjectInitValue { get; set; }
+        public bool IsEditable { get; set; }
+        public bool IsInitable { get; set; }
+        public bool IsShown { get; set; }
     }
 }
