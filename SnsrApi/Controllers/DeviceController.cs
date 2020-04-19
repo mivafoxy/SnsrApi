@@ -167,7 +167,7 @@ namespace SnsrApi.Controllers
                 };
 
 
-            // Должна произойти доработка модели в БД.
+            // Должна произойти доработка модели в БД. У модели устройства отсутствует профиль...
 
             //var mainModelProfileId =
             //    (from mp in _context.Set<ModelProfile>()
@@ -188,6 +188,10 @@ namespace SnsrApi.Controllers
 
             //newMainDeviceLogical.DeviceProfile.Add(newCommunicationProfile);
             
+            //
+            // Что делать с этим?
+            //
+
             _context.Device.Add(newDevice);
             _context.SaveChanges();
 
