@@ -90,6 +90,12 @@ namespace SnsrApi.Controllers
             return deviceValues.ToList();
         }
 
+        [HttpPost]
+        public void CreateNewDevice(DeviceModel deviceModel)
+        {
+
+        }
+
         public IActionResult Index()
         {
             return View();

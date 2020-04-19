@@ -8,5 +8,6 @@ namespace SnsrApi.Models
     public class ObjectItem
     {
         public int ObjectId { get; set; }
+        public string ObjectInitValue { get; set; }
     }
 }
