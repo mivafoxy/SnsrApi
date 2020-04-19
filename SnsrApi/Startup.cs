@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using SnsrApi.DbModels;
 using SnsrApi.Models;
 
 namespace SnsrApi
@@ -20,7 +21,7 @@ namespace SnsrApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<SnsrContext>(opt => opt.UseNpgsql("Host=localhost;Database=snsr;Username=postgres;Password=masterkey"));
+            services.AddDbContext<snsrContext>(opt => opt.UseNpgsql("Host=localhost;Database=snsr;Username=postgres;Password=masterkey"));
 
             services.AddControllers();
         }

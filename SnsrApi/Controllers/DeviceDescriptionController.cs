@@ -12,9 +12,9 @@ namespace SnsrApi.Controllers
     [ApiController]
     public class DeviceDescriptionController
     {
-        private readonly SnsrContext context;
+        private readonly snsrContext context;
 
-        public DeviceDescriptionController(SnsrContext context)
+        public DeviceDescriptionController(snsrContext context)
         {
             this.context = context;
         }

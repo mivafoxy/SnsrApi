@@ -15,9 +15,9 @@ namespace SnsrApi.Controllers
     [ApiController]
     public class DeviceController : Controller
     {
-        private readonly SnsrContext _context;
+        private readonly snsrContext _context;
 
-        public DeviceController(SnsrContext context)
+        public DeviceController(snsrContext context)
         {
             _context = context;
         }
