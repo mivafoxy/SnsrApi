@@ -8,8 +8,8 @@ namespace SnsrApi.DbModels
         public DeviceProfile()
         {
             DeviceObject = new HashSet<DeviceObject>();
-            ProfileNetworkLeftProfile = new HashSet<ProfileNetwork>();
-            ProfileNetworkRightProfile = new HashSet<ProfileNetwork>();
+            ProfileNetworkChildProfile = new HashSet<ProfileNetwork>();
+            ProfileNetworkParentProfile = new HashSet<ProfileNetwork>();
         }
 
         public string IdKey { get; set; }
@@ -19,7 +19,7 @@ namespace SnsrApi.DbModels
         public virtual DeviceLogical DeviceLdFkeyNavigation { get; set; }
         public virtual ModelProfile ModelProfileFkeyNavigation { get; set; }
         public virtual ICollection<DeviceObject> DeviceObject { get; set; }
-        public virtual ICollection<ProfileNetwork> ProfileNetworkLeftProfile { get; set; }
-        public virtual ICollection<ProfileNetwork> ProfileNetworkRightProfile { get; set; }
+        public virtual ICollection<ProfileNetwork> ProfileNetworkChildProfile { get; set; }
+        public virtual ICollection<ProfileNetwork> ProfileNetworkParentProfile { get; set; }
     }
 }

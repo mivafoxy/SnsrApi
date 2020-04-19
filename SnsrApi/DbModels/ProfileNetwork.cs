@@ -6,10 +6,10 @@ namespace SnsrApi.DbModels
     public partial class ProfileNetwork
     {
         public string IdKey { get; set; }
-        public string LeftProfileId { get; set; }
-        public string RightProfileId { get; set; }
+        public string ParentProfileId { get; set; }
+        public string ChildProfileId { get; set; }
 
-        public virtual DeviceProfile LeftProfile { get; set; }
-        public virtual DeviceProfile RightProfile { get; set; }
+        public virtual DeviceProfile ChildProfile { get; set; }
+        public virtual DeviceProfile ParentProfile { get; set; }
     }
 }

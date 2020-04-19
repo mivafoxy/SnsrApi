@@ -1,17 +1,16 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
-using SnsrApi.DbModels;
 
-namespace SnsrApi.Models
+namespace SnsrApi.DbModels
 {
-    public partial class SnsrContext : DbContext
+    public partial class snsrContext : DbContext
     {
-        public SnsrContext()
+        public snsrContext()
         {
         }
 
-        public SnsrContext(DbContextOptions<SnsrContext> options)
+        public snsrContext(DbContextOptions<snsrContext> options)
             : base(options)
         {
         }
@@ -56,23 +55,23 @@ namespace SnsrApi.Models
                 entity.HasComment("Прибор - экземпляр модели, представляющий и отображающий настоящий где-либо расположенный прибор в реальной жизни");
 
                 entity.Property(e => e.IdKey)
-                    .HasColumnName("ID_Key")
+                    .HasColumnName("id_key")
                     .HasColumnType("character varying");
 
-                entity.Property(e => e.DeviceType).HasColumnName("Device_type");
+                entity.Property(e => e.DeviceType).HasColumnName("device_type");
 
                 entity.Property(e => e.MainLogicalDevice)
-                    .HasColumnName("Main_logical_device")
+                    .HasColumnName("main_logical_device")
                     .HasColumnType("character varying");
 
                 entity.Property(e => e.ModelFkey)
                     .IsRequired()
-                    .HasColumnName("Model_fkey")
+                    .HasColumnName("model_fkey")
                     .HasColumnType("character varying");
 
                 entity.Property(e => e.SerialNumber)
                     .IsRequired()
-                    .HasColumnName("Serial_number")
+                    .HasColumnName("serial_number")
                     .HasColumnType("character varying");
 
                 entity.HasOne(d => d.DeviceTypeNavigation)
@@ -102,17 +101,17 @@ namespace SnsrApi.Models
                 entity.HasComment("device_logical - связь логического прибора созданного экземпляра с тем прибором, что есть в модели, по которой создано отображение физического прибора.");
 
                 entity.Property(e => e.IdKey)
-                    .HasColumnName("ID_Key")
+                    .HasColumnName("id_key")
                     .HasColumnType("character varying");
 
                 entity.Property(e => e.DeviceFkey)
                     .IsRequired()
-                    .HasColumnName("Device_fkey")
+                    .HasColumnName("device_fkey")
                     .HasColumnType("character varying");
 
                 entity.Property(e => e.ModelLogicalDevice)
                     .IsRequired()
-                    .HasColumnName("Model_logical_device")
+                    .HasColumnName("model_logical_device")
                     .HasColumnType("character varying");
 
                 entity.HasOne(d => d.DeviceFkeyNavigation)
@@ -136,27 +135,27 @@ namespace SnsrApi.Models
                 entity.HasComment("device_object - связь объекта созданного экземпляра прибора с тем, что в модели");
 
                 entity.Property(e => e.IdKey)
-                    .HasColumnName("ID_Key")
+                    .HasColumnName("id_key")
                     .HasColumnType("character varying");
 
                 entity.Property(e => e.DeviceLdFkey)
                     .IsRequired()
-                    .HasColumnName("Device_ld_fkey")
+                    .HasColumnName("device_ld_fkey")
                     .HasColumnType("character varying");
 
                 entity.Property(e => e.DeviceProfileFkey)
-                    .HasColumnName("Device_profile_fkey")
+                    .HasColumnName("device_profile_fkey")
                     .HasColumnType("character varying");
 
                 entity.Property(e => e.ModelObjectFkey)
                     .IsRequired()
-                    .HasColumnName("Model_object_fkey")
+                    .HasColumnName("model_object_fkey")
                     .HasColumnType("character varying");
 
-                entity.Property(e => e.ObjectDictId).HasColumnName("Object_dict_id");
+                entity.Property(e => e.ObjectDictId).HasColumnName("object_dict_id");
 
                 entity.Property(e => e.StartValue)
-                    .HasColumnName("Start_value")
+                    .HasColumnName("start_value")
                     .HasColumnType("character varying");
 
                 entity.HasOne(d => d.DeviceLdFkeyNavigation)
@@ -191,20 +190,20 @@ namespace SnsrApi.Models
                 entity.HasComment("device_object_value - значение объекта в устройстве. Например, значение температуры.");
 
                 entity.Property(e => e.IdKey)
-                    .HasColumnName("ID_Key")
+                    .HasColumnName("id_key")
                     .HasColumnType("character varying");
 
                 entity.Property(e => e.DeviceObjectFkey)
                     .IsRequired()
-                    .HasColumnName("Device_object_fkey")
+                    .HasColumnName("device_object_fkey")
                     .HasColumnType("character varying");
 
                 entity.Property(e => e.ObjectValue)
                     .IsRequired()
-                    .HasColumnName("Object_value")
+                    .HasColumnName("object_value")
                     .HasColumnType("character varying");
 
-                entity.Property(e => e.ReceiveTime).HasColumnName("Receive_time");
+                entity.Property(e => e.ReceiveTime).HasColumnName("receive_time");
 
                 entity.HasOne(d => d.DeviceObjectFkeyNavigation)
                     .WithMany(p => p.DeviceObjectValue)
@@ -222,17 +221,17 @@ namespace SnsrApi.Models
                 entity.HasComment("device_profile - связь профиля созданного экземпляра модели прибора.");
 
                 entity.Property(e => e.IdKey)
-                    .HasColumnName("ID_Key")
+                    .HasColumnName("id_key")
                     .HasColumnType("character varying");
 
                 entity.Property(e => e.DeviceLdFkey)
                     .IsRequired()
-                    .HasColumnName("Device_ld_fkey")
+                    .HasColumnName("device_ld_fkey")
                     .HasColumnType("character varying");
 
                 entity.Property(e => e.ModelProfileFkey)
                     .IsRequired()
-                    .HasColumnName("Model_profile_fkey")
+                    .HasColumnName("model_profile_fkey")
                     .HasColumnType("character varying");
 
                 entity.HasOne(d => d.DeviceLdFkeyNavigation)
@@ -256,10 +255,16 @@ namespace SnsrApi.Models
                 entity.HasComment("Модель прибора - описание, чертёж прибора. Ближайшее сравнение - классы в ООП. По их лекалу будут создаваться экземпляры, соответствующие физическим приборам, расположенным в реальном мире.");
 
                 entity.Property(e => e.IdKey)
-                    .HasColumnName("ID_Key")
+                    .HasColumnName("id_key")
                     .HasColumnType("character varying");
 
-                entity.Property(e => e.ModelTypeFkey).HasColumnName("Model_type_fkey");
+                entity.Property(e => e.ModelName)
+                    .IsRequired()
+                    .HasColumnName("model_name")
+                    .HasColumnType("character varying")
+                    .HasDefaultValueSql("'UNKNOWN'::character varying");
+
+                entity.Property(e => e.ModelTypeFkey).HasColumnName("model_type_fkey");
 
                 entity.HasOne(d => d.ModelTypeFkeyNavigation)
                     .WithMany(p => p.Model)
@@ -277,14 +282,14 @@ namespace SnsrApi.Models
                 entity.HasComment("Логический прибор - слой в модели, который содержит в себе профили и объекты. Необходим для идентификации объектов, к примеру, если в приборе есть два микроконтроллера, измеряющие температуру, для идентификации используются разные логические приборы. Будет создано 2 логических прибора, в каждом по объекту \"Температура\"");
 
                 entity.Property(e => e.IdKey)
-                    .HasColumnName("ID_Key")
+                    .HasColumnName("id_key")
                     .HasColumnType("character varying");
 
-                entity.Property(e => e.LdType).HasColumnName("Ld_type");
+                entity.Property(e => e.LdType).HasColumnName("ld_type");
 
                 entity.Property(e => e.ModelFkey)
                     .IsRequired()
-                    .HasColumnName("Model_fkey")
+                    .HasColumnName("model_fkey")
                     .HasColumnType("character varying");
 
                 entity.HasOne(d => d.LdTypeNavigation)
@@ -308,19 +313,25 @@ namespace SnsrApi.Models
                 entity.HasComment("Объекты логического прибора - ссылки, связывающие профили и логические приборы с словарём объектов");
 
                 entity.Property(e => e.IdKey)
-                    .HasColumnName("ID_Key")
+                    .HasColumnName("id_key")
                     .HasColumnType("character varying");
+
+                entity.Property(e => e.IsEditable).HasColumnName("is_editable");
+
+                entity.Property(e => e.IsInitable).HasColumnName("is_initable");
+
+                entity.Property(e => e.IsShown).HasColumnName("is_shown");
 
                 entity.Property(e => e.ModelLdFkey)
                     .IsRequired()
-                    .HasColumnName("Model_ld_fkey")
+                    .HasColumnName("model_ld_fkey")
                     .HasColumnType("character varying");
 
                 entity.Property(e => e.ModelProfileFkey)
-                    .HasColumnName("Model_profile_fkey")
+                    .HasColumnName("model_profile_fkey")
                     .HasColumnType("character varying");
 
-                entity.Property(e => e.ObjectId).HasColumnName("Object_id");
+                entity.Property(e => e.ObjectId).HasColumnName("object_id");
 
                 entity.HasOne(d => d.ModelLdFkeyNavigation)
                     .WithMany(p => p.ModelLogicalDeviceObject)
@@ -349,12 +360,12 @@ namespace SnsrApi.Models
                 entity.HasComment("Тип логического прибора - словарь с перечислением типов логических приборов.");
 
                 entity.Property(e => e.IdKey)
-                    .HasColumnName("ID_Key")
+                    .HasColumnName("id_key")
                     .ValueGeneratedNever();
 
                 entity.Property(e => e.LdTypeName)
                     .IsRequired()
-                    .HasColumnName("Ld_type_name")
+                    .HasColumnName("ld_type_name")
                     .HasColumnType("character varying");
             });
 
@@ -368,15 +379,15 @@ namespace SnsrApi.Models
                 entity.HasComment("Профиль содержит информацию для коммуникации с прибором.");
 
                 entity.Property(e => e.IdKey)
-                    .HasColumnName("ID_Key")
+                    .HasColumnName("id_key")
                     .HasColumnType("character varying");
 
                 entity.Property(e => e.ModelLdFkey)
                     .IsRequired()
-                    .HasColumnName("Model_ld_fkey")
+                    .HasColumnName("model_ld_fkey")
                     .HasColumnType("character varying");
 
-                entity.Property(e => e.ProfileType).HasColumnName("Profile_type");
+                entity.Property(e => e.ProfileType).HasColumnName("profile_type");
 
                 entity.HasOne(d => d.ModelLdFkeyNavigation)
                     .WithMany(p => p.ModelProfile)
@@ -399,12 +410,12 @@ namespace SnsrApi.Models
                 entity.HasComment("Тип модели - словарь с перечислением типов.");
 
                 entity.Property(e => e.IdKey)
-                    .HasColumnName("ID_Key")
+                    .HasColumnName("id_key")
                     .ValueGeneratedNever();
 
                 entity.Property(e => e.ModelTypeName)
                     .IsRequired()
-                    .HasColumnName("Model_type_name")
+                    .HasColumnName("model_type_name")
                     .HasColumnType("character varying");
             });
 
@@ -418,28 +429,28 @@ namespace SnsrApi.Models
                 entity.HasComment("network - сеть, граф, для того, чтобы в системе понимать связь между приборами.");
 
                 entity.Property(e => e.IdKey)
-                    .HasColumnName("ID_Key")
+                    .HasColumnName("id_key")
                     .ValueGeneratedNever();
 
-                entity.Property(e => e.LeftDeviceId)
+                entity.Property(e => e.ChildDeviceId)
                     .IsRequired()
-                    .HasColumnName("Left_device_id")
+                    .HasColumnName("child_device_id")
                     .HasColumnType("character varying");
 
-                entity.Property(e => e.RightDeviceId)
+                entity.Property(e => e.ParentDeviceId)
                     .IsRequired()
-                    .HasColumnName("Right_device_id")
+                    .HasColumnName("parent_device_id")
                     .HasColumnType("character varying");
 
-                entity.HasOne(d => d.LeftDevice)
-                    .WithMany(p => p.NetworkLeftDevice)
-                    .HasForeignKey(d => d.LeftDeviceId)
-                    .HasConstraintName("network_Left_device_id_fkey");
-
-                entity.HasOne(d => d.RightDevice)
-                    .WithMany(p => p.NetworkRightDevice)
-                    .HasForeignKey(d => d.RightDeviceId)
+                entity.HasOne(d => d.ChildDevice)
+                    .WithMany(p => p.NetworkChildDevice)
+                    .HasForeignKey(d => d.ChildDeviceId)
                     .HasConstraintName("network_Right_device_id_fkey");
+
+                entity.HasOne(d => d.ParentDevice)
+                    .WithMany(p => p.NetworkParentDevice)
+                    .HasForeignKey(d => d.ParentDeviceId)
+                    .HasConstraintName("network_Left_device_id_fkey");
             });
 
             modelBuilder.Entity<ObjectDict>(entity =>
@@ -452,15 +463,15 @@ namespace SnsrApi.Models
                 entity.HasComment("Словарь объектов - перечисление объектов, которые могут содержаться в приборах. Например, температура, серийный номер, ip адрес.");
 
                 entity.Property(e => e.IdKey)
-                    .HasColumnName("ID_Key")
+                    .HasColumnName("id_key")
                     .ValueGeneratedNever();
 
                 entity.Property(e => e.ObjectName)
                     .IsRequired()
-                    .HasColumnName("Object_name")
+                    .HasColumnName("object_name")
                     .HasColumnType("character varying");
 
-                entity.Property(e => e.ObjectType).HasColumnName("Object_type");
+                entity.Property(e => e.ObjectType).HasColumnName("object_type");
 
                 entity.HasOne(d => d.ObjectTypeNavigation)
                     .WithMany(p => p.ObjectDict)
@@ -479,12 +490,12 @@ namespace SnsrApi.Models
 ");
 
                 entity.Property(e => e.IdKey)
-                    .HasColumnName("ID_Key")
+                    .HasColumnName("id_key")
                     .ValueGeneratedNever();
 
                 entity.Property(e => e.ObjectTypeName)
                     .IsRequired()
-                    .HasColumnName("Object_type_name")
+                    .HasColumnName("object_type_name")
                     .HasColumnType("character varying");
             });
 
@@ -496,28 +507,28 @@ namespace SnsrApi.Models
                 entity.ToTable("profile_network");
 
                 entity.Property(e => e.IdKey)
-                    .HasColumnName("ID_Key")
+                    .HasColumnName("id_key")
                     .HasColumnType("character varying");
 
-                entity.Property(e => e.LeftProfileId)
-                    .HasColumnName("Left_profile_id")
-                    .HasColumnType("character varying");
-
-                entity.Property(e => e.RightProfileId)
+                entity.Property(e => e.ChildProfileId)
                     .IsRequired()
-                    .HasColumnName("Right_profile_id")
+                    .HasColumnName("child_profile_id")
                     .HasColumnType("character varying");
 
-                entity.HasOne(d => d.LeftProfile)
-                    .WithMany(p => p.ProfileNetworkLeftProfile)
-                    .HasForeignKey(d => d.LeftProfileId)
+                entity.Property(e => e.ParentProfileId)
+                    .HasColumnName("parent_profile_id")
+                    .HasColumnType("character varying");
+
+                entity.HasOne(d => d.ChildProfile)
+                    .WithMany(p => p.ProfileNetworkChildProfile)
+                    .HasForeignKey(d => d.ChildProfileId)
+                    .HasConstraintName("right_profile");
+
+                entity.HasOne(d => d.ParentProfile)
+                    .WithMany(p => p.ProfileNetworkParentProfile)
+                    .HasForeignKey(d => d.ParentProfileId)
                     .OnDelete(DeleteBehavior.Cascade)
                     .HasConstraintName("left_profile");
-
-                entity.HasOne(d => d.RightProfile)
-                    .WithMany(p => p.ProfileNetworkRightProfile)
-                    .HasForeignKey(d => d.RightProfileId)
-                    .HasConstraintName("right_profile");
             });
 
             modelBuilder.Entity<ProfileType>(entity =>
@@ -528,12 +539,12 @@ namespace SnsrApi.Models
                 entity.ToTable("profile_type");
 
                 entity.Property(e => e.IdKey)
-                    .HasColumnName("ID_Key")
+                    .HasColumnName("id_key")
                     .ValueGeneratedNever();
 
                 entity.Property(e => e.TypeName)
                     .IsRequired()
-                    .HasColumnName("Type_name")
+                    .HasColumnName("type_name")
                     .HasColumnType("character varying");
             });
 

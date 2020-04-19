@@ -8,8 +8,8 @@ namespace SnsrApi.DbModels
         public Device()
         {
             DeviceLogical = new HashSet<DeviceLogical>();
-            NetworkLeftDevice = new HashSet<Network>();
-            NetworkRightDevice = new HashSet<Network>();
+            NetworkChildDevice = new HashSet<Network>();
+            NetworkParentDevice = new HashSet<Network>();
         }
 
         public string IdKey { get; set; }
@@ -22,7 +22,7 @@ namespace SnsrApi.DbModels
         public virtual DeviceLogical MainLogicalDeviceNavigation { get; set; }
         public virtual Model ModelFkeyNavigation { get; set; }
         public virtual ICollection<DeviceLogical> DeviceLogical { get; set; }
-        public virtual ICollection<Network> NetworkLeftDevice { get; set; }
-        public virtual ICollection<Network> NetworkRightDevice { get; set; }
+        public virtual ICollection<Network> NetworkChildDevice { get; set; }
+        public virtual ICollection<Network> NetworkParentDevice { get; set; }
     }
 }
