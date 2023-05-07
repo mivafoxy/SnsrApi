@@ -88,8 +88,6 @@ namespace SnsrApi.Controllers
                 deviceModels.Add(deviceModel);
             }
 
-            
-
             return deviceModels;
         }
 
@@ -310,6 +308,7 @@ namespace SnsrApi.Controllers
             _context.SaveChanges();
         }
 
+        [NonAction]
         public IActionResult Index()
         {
             return View();

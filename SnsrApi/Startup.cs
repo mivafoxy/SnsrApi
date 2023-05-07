@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Options;
 using SnsrApi.DbModels;
 using SnsrApi.Models;
 
@@ -22,7 +23,7 @@ namespace SnsrApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<snsrContext>(opt => opt.UseNpgsql("Host=localhost;Database=snsr;Username=postgres;Password=masterkey"));
-
+            services.AddSwaggerGen();
             services.AddControllers();
         }
 
@@ -34,11 +35,19 @@ namespace SnsrApi
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
 
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseSwagger();
+
+            app.UseSwaggerUI(options =>
+            {
+                options.SwaggerEndpoint("/swagger/v1/swagger.json", "api");
+                options.RoutePrefix = string.Empty;
+            });
 
             app.UseEndpoints(endpoints =>
             {

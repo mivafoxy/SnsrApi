@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
@@ -20,6 +21,9 @@ namespace SnsrApi
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
+                    webBuilder.UseKestrel();
+                    webBuilder.UseIIS();
+                    webBuilder.UseUrls("http://192.168.1.54:44343");
                     webBuilder.UseStartup<Startup>();
                 });
     }
