@@ -126,6 +126,28 @@ namespace SnsrApi.Controllers
             return deviceValues.ToList();
         }
 
+        [HttpGet("deviceSerial={deviceSerial}&objectId={objectId}")]
+        public ObjectValueModel GetLastDeviceValue(string deviceSerial, int objectId)
+        {
+            var deviceLastValue =
+                from devals in _context.Set<DeviceObjectValue>()
+                join dev in _context.Set<Device>() on deviceSerial equals dev.SerialNumber
+                join dl in _context.Set<DeviceLogical>() on dev.IdKey equals dl.DeviceFkey
+                join dob in _context.Set<DeviceObject>() on dl.IdKey equals dob.DeviceLdFkey
+                orderby devals.ReceiveTime
+                select
+                new ObjectValueModel
+                {
+                    ObjectId = dob.ObjectDictId,
+                    ObjectReceiveTime = devals.ReceiveTime,
+                    ObjectValue = devals.ObjectValue
+                };
+
+            var result = deviceLastValue.ToList().LastOrDefault();
+
+            return result;
+        }
+
         [HttpPost]
         public void CreateNewDevice(DeviceModel deviceModel)
         {
