@@ -131,9 +131,10 @@ namespace SnsrApi.Controllers
         {
             var deviceLastValue =
                 from devals in _context.Set<DeviceObjectValue>()
+                join dob in _context.Set<DeviceObject>() on devals.DeviceObjectFkey equals dob.IdKey
+                join dl in _context.Set<DeviceLogical>() on dob.DeviceLdFkey equals dl.IdKey
                 join dev in _context.Set<Device>() on deviceSerial equals dev.SerialNumber
-                join dl in _context.Set<DeviceLogical>() on dev.IdKey equals dl.DeviceFkey
-                join dob in _context.Set<DeviceObject>() on dl.IdKey equals dob.DeviceLdFkey
+                where dob.ObjectDictId == objectId
                 orderby devals.ReceiveTime
                 select
                 new ObjectValueModel
